@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% stylesheets '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/*' filter='cssrewrite'%}
+        <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
+    {% endstylesheets %}
+
+    {% block stylesheets %}
+    {% endblock %}
+
+</head>
+<body>
+<div>
+    {% block fos_user_content %}
+    {% endblock fos_user_content %}
+</div>
+</body>
+</html>

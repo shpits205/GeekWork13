@@ -1,0 +1,27 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block stylesheets %}
+    <link href="{{ asset('bundles/acmetest/css/login.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    {% if error %}
+        <div>{{ error|trans }}</div>
+    {% endif %}
+    <div class="container">
+
+        <form class="form-signin" role="form" action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <input type="text" class="form-control" name="_username" placeholder="Email address" required autofocus>
+            <input type="password" class="form-control" name="_password" placeholder="Password" required>
+            <label class="checkbox">
+                <input type="checkbox" name="_remember_me" value="remember-me"> Remember me
+            </label>
+            <button class="btn btn-lg btn-primary btn-block" name="_submit" type="submit">Sign in</button>
+        </form>
+    </div>
+{% endblock fos_user_content %}

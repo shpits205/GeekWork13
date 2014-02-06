@@ -1,0 +1,7 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block stylesheets %}
+    <link href="{{ asset('bundles/acmetest/css/login.css') }}" type="text/css" rel="stylesheet">
+{% endblock %}
+{% block fos_user_content %}
+{% include "FOSUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}
